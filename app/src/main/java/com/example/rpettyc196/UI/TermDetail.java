@@ -26,6 +26,7 @@ public class TermDetail extends AppCompatActivity {
     EditText editId;
     String name;
     int termId;
+    int courseID;
     Term term;
     Term currentTerm;
     int numTerms;
@@ -44,17 +45,16 @@ public class TermDetail extends AppCompatActivity {
         editName.setText(name);
         //editId.setText(termId);
 
-        repository = new Repository(getApplication());
-        RecyclerView recyclerView = findViewById(R.id.courseRecyclerview);
-        repository = new Repository(getApplication());
+
+        RecyclerView recyclerView = findViewById(R.id.termCourseRecyclerView);
         final CourseAdapter courseAdapter = new CourseAdapter(this);
+        recyclerView.setAdapter(courseAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        repository = new Repository(getApplication());
         List<Course> filteredCourses = new ArrayList<>();
         for (Course c : repository.getAllCourses()) {
             if (c.getTermID() == termId) filteredCourses.add(c);
         }
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(courseAdapter);
         courseAdapter.setCourse(filteredCourses);
 
         Button button = findViewById(R.id.saveTerm);
@@ -85,7 +85,7 @@ public class TermDetail extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TermDetail.this, CourseList.class);
+                Intent intent = new Intent(TermDetail.this, CourseDetail.class);
                 intent.putExtra("termID", termId);
                 startActivity(intent);
             }
@@ -97,7 +97,7 @@ public class TermDetail extends AppCompatActivity {
     protected void onResume() {
 
         super.onResume();
-        RecyclerView recyclerView = findViewById(R.id.courseRecyclerview);
+        RecyclerView recyclerView = findViewById(R.id.termCourseRecyclerView);
         final CourseAdapter courseAdapter = new CourseAdapter(this);
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

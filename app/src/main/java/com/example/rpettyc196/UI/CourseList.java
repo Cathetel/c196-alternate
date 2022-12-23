@@ -24,7 +24,7 @@ public class CourseList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
 
-        RecyclerView recyclerView = findViewById(R.id.courseRecyclerview);
+        RecyclerView recyclerView = findViewById(R.id.courseRecyclerView);
         final CourseAdapter courseAdapter = new CourseAdapter(this);
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,7 +47,7 @@ public class CourseList extends AppCompatActivity {
 
         super.onResume();
         List<Course> allCourses = repository.getAllCourses();
-        RecyclerView recyclerView = findViewById(R.id.courseRecyclerview);
+        RecyclerView recyclerView = findViewById(R.id.courseRecyclerView);
         final CourseAdapter courseAdapter = new CourseAdapter(this);
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

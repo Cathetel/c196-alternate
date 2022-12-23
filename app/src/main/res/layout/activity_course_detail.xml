@@ -23,10 +23,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Term Name: " />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Course ID: " />
+
+                    <EditText
+                        android:id="@+id/courseID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Course 1" />
+                </LinearLayout>
 
             </LinearLayout>
             <LinearLayout
@@ -63,7 +75,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/termActionButton"
+        android:id="@+id/courseActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -74,7 +86,7 @@
     <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@id/scrollView"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/assessmentRecyclerview"
+        android:id="@+id/assessmentRecyclerView"
         android:layout_width="409dp"
         android:layout_height="373dp"
         tools:layout_editor_absoluteX="1dp"

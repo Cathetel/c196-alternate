@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         termButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, TermList.class);
+                Intent intent = new Intent(MainActivity.this, TermList.class);
                 junkData();
                 startActivity(intent);
             }
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         courseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, CourseList.class);
+                Intent intent = new Intent(MainActivity.this, CourseList.class);
                 junkData();
                 startActivity(intent);
             }
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         assessmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, AssessmentList.class);
+                Intent intent = new Intent(MainActivity.this, AssessmentList.class);
                 junkData();
                 startActivity(intent);
             }
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         Repository repo = new Repository(getApplication());
         Term term = new Term(1, "TEST1", null, null);
         repo.insert(term);
-        Assessment assesment1=new Assessment(2,"Asses2", null, null);
+        Assessment assesment1 = new Assessment(1, 2, "Asses2", null, null);
         repo.insert(assesment1);
-        Course class1=new Course(1,3,"course1", null, null,"In Progress","Carolyn Sher-DeCusatis","555-555-5555","carolyn@wgu.edu","test note");
+        Course class1 = new Course(1, 3, "course1", null, null, "In Progress", "Carolyn Sher-DeCusatis", "555-555-5555", "carolyn@wgu.edu", "test note");
         repo.insert(class1);
 
     }
